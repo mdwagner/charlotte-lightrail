@@ -1,6 +1,9 @@
 import React from 'react';
-import { AppState, NetInfo, StatusBar, View, DeviceEventEmitter } from 'react-native';
-import QuickActions from 'react-native-quick-actions';
+import { AppState, NetInfo, StatusBar, View, DeviceEventEmitter, Platform } from 'react-native';
+if (Platform.OS === 'ios') {
+  const QulckActions = require('react-native-quick-actions');
+}
+// import QuickActions from 'react-native-quick-actions';
 import Mapbox, { MapView } from 'react-native-mapbox-gl';
 import moment from 'moment';
 import userDefaults from 'react-native-user-defaults';
@@ -103,7 +106,10 @@ export default class RailMap extends React.Component {
   }
 
   setDefaultDirections = () => {
-    const action = QuickActions.popInitialAction();
+    let action = null;
+    if (Platform === 'ios') {
+      action = QuickActions.popInitialAction();
+    }
 
     if (action) {
       this.fetchDistances(action.type === 'co.TeamLuna.CharlotteLightRail.drive' ? 'driving' : 'walking');
