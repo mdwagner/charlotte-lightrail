@@ -5,6 +5,7 @@ import { StackNavigator } from 'react-navigation';
 import { ThemeProvider } from 'styled-components/native';
 import { COLORS } from 'assets/styles/constants';
 import { FAQ, RailMap, StationDetail, ScheduleInfo } from 'scenes';
+import { NewMap } from '../NewMap';
 
 const AppNavigator = StackNavigator({
   Main: {
@@ -30,9 +31,16 @@ const AppNavigator = StackNavigator({
     navigationOptions: {
       title: 'Station Schedules'
     }
+  },
+  Playground: {
+    screen: NewMap,
+    navigationOptions: {
+      title: 'NewMap Playground'
+    }
   }
 }, {
-  initialRouteName: 'Main',
+  // initialRouteName: 'Main',
+  initialRouteName: 'Playground',
   navigationOptions: {
     headerStyle: {
       backgroundColor: COLORS.backgroundColorDark,
