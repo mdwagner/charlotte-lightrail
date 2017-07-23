@@ -4371,7 +4371,7 @@ react-deep-force-update@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-1.0.1.tgz#f911b5be1d2a6fe387507dd6e9a767aa2924b4c7"
 
-react-native-collapsible@brandonfancher/react-native-collapsible, "react-native-collapsible@git+https://git@github.com/brandonfancher/react-native-collapsible.git":
+react-native-collapsible@brandonfancher/react-native-collapsible:
   version "0.7.0"
   resolved "https://codeload.github.com/brandonfancher/react-native-collapsible/tar.gz/cf7fa02a5cfbcb7a9d382212b2104c97904086fb"
 

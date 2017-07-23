@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { deviceProps } from 'helpers/device';
+import { deviceProps } from '../../helpers/device';
 
 const {
   insideColPadding, circleWrapperHeight, circleWidth, deviceScreen

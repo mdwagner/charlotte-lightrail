@@ -2,7 +2,7 @@ import React from 'react';
 import { Animated, View, StyleSheet } from 'react-native';
 import Accordion from 'react-native-collapsible/Accordion';
 import { withTheme } from 'styled-components/native';
-import { faqContent } from 'components/FaqContent';
+import { faqContent } from '../../components/FaqContent';
 import {
   AccordionContentView, AccordionHeaderView, AccordionWrapperView,
   AnimatedArrowsView, BoldText, ScrollViewView, ViewContainerView

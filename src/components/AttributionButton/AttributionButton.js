@@ -1,9 +1,12 @@
 import React from 'react';
-import { ActionSheetIOS, Alert } from 'react-native';
-// import userDefaults from 'react-native-user-defaults';
-import DefaultPreference from 'react-native-default-preference';
+import { ActionSheetIOS, Alert, Platform } from 'react-native';
+if (Platform.OS === 'ios') {
+  const defaults = require('react-native-user-defaults');
+} else if (Platform.OS === 'android') {
+  const defaults = require('react-native-default-preference');
+}
 import { AttributionTouchableOpacity, AttributionIconImage } from './AttributionButtonCss';
-import { displayLink } from 'helpers/config';
+import { displayLink } from '../../helpers/config';
 
 export default class AttributionButton extends React.Component {
 
@@ -17,8 +20,7 @@ export default class AttributionButton extends React.Component {
     const cancelButtonIndex = 3;
     const title = 'Map Credits and Options';
 
-    // const setParticipation = willParticipate => userDefaults.set('MGLMapboxMetricsEnabled', willParticipate).catch(err => console.log(err));
-    const setParticipation = willParticipate => DefaultPreference.set('MGLMapboxMetricsEnabled', JSON.stringify(willParticipate)).catch(err => console.log(err));
+    const setParticipation = willParticipate => defaults.set('MGLMapboxMetricsEnabled', JSON.stringify(willParticipate)).catch(err => console.log(err));
     const participatingMessage = 'You are helping to make OpenStreetMap and Mapbox maps better by contributing anonymous usage data.';
     const notParticipatingMessage = 'You can help make OpenStreetMap and Mapbox maps better by contributing anonymous usage data.';
     const participatingOptions = [
@@ -40,8 +42,7 @@ export default class AttributionButton extends React.Component {
           displayLink('http://www.openstreetmap.org/about/');
           break;
         case 2:
-          // userDefaults.get('MGLMapboxMetricsEnabled')
-          DefaultPreference.get('MGLMapboxMetricsEnabled')
+          defaults.get('MGLMapboxMetricsEnabled')
             .then((participating) => {
               if (participating === '1') {
                 Alert.alert('Make Mapbox Maps Better', participatingMessage, participatingOptions);
@@ -63,7 +64,7 @@ export default class AttributionButton extends React.Component {
       <AttributionTouchableOpacity onPress={this.showActionSheet}>
         <AttributionIconImage
           // eslint-disable-next-line
-          source={require('assets/icons/info/info_circle.png')}
+          source={require('../../assets/icons/info/info_circle.png')}
         />
       </AttributionTouchableOpacity>
     );

@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { InteractionManager, Text, View } from 'react-native';
 import moment from 'moment';
-import ScheduleInfoHeader from 'components/ScheduleInfoHeader';
-import { blueStops } from 'helpers/config';
-import { getScheduleDay } from 'helpers/scheduleCalcs';
-import { deviceProps } from 'helpers/device';
+import ScheduleInfoHeader from '../../components/ScheduleInfoHeader';
+import { blueStops } from '../../helpers/config';
+import { getScheduleDay } from '../../helpers/scheduleCalcs';
+import { deviceProps } from '../../helpers/device';
 import {
   BoldWhiteText, DescriptionText, GrayText, TableCellView,
   HorizontalLineInsideLeftView, HorizontalLineInsideRightView,

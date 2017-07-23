@@ -1,22 +1,18 @@
 import React from 'react';
 import { AppState, NetInfo, StatusBar, View, DeviceEventEmitter, Platform } from 'react-native';
-if (Platform.OS === 'ios') {
-  const QulckActions = require('react-native-quick-actions');
-}
-// import QuickActions from 'react-native-quick-actions';
+import QuickActions from 'react-native-quick-actions';
+import defaults from 'react-native-user-defaults';
 import Mapbox, { MapView } from 'react-native-mapbox-gl';
 import moment from 'moment';
-// import userDefaults from 'react-native-user-defaults';
-import DefaultPreference from 'react-native-default-preference';
 import {
   containerStyle, ContainerView, VisibleView
 } from './RailMapCss';
-import { blueStops, mapboxApiKey, timeInterval, SIMULATE_DISCONNECTED } from 'helpers/config';
-import { distanceTimeConverter, getNextTrainTime } from 'helpers/scheduleCalcs';
-import { blueLine, getAnnotations, getStopCallouts } from 'helpers/mapSetup';
-import { mapboxDistanceAPI } from 'helpers/mapboxDistanceAPI';
-import { deviceProps } from 'helpers/device';
-import MapOverlay from 'components/MapOverlay';
+import { blueStops, mapboxApiKey, timeInterval, SIMULATE_DISCONNECTED } from '../../helpers/config';
+import { distanceTimeConverter, getNextTrainTime } from '../../helpers/scheduleCalcs';
+import { blueLine, getAnnotations, getStopCallouts } from '../../helpers/mapSetup';
+import { mapboxDistanceAPI } from '../../helpers/mapboxDistanceAPI';
+import { deviceProps } from '../../helpers/device';
+import MapOverlay from '../../components/MapOverlay';
 
 const {
   defaultCenter, defaultZoom, deviceName
@@ -107,23 +103,17 @@ export default class RailMap extends React.Component {
   }
 
   setDefaultDirections = () => {
-    let action = null;
-    if (Platform === 'ios') {
-      action = QuickActions.popInitialAction();
-    }
+    const action = QuickActions.popInitialAction();
 
     if (action) {
       this.fetchDistances(action.type === 'co.TeamLuna.CharlotteLightRail.drive' ? 'driving' : 'walking');
       if (action.type === 'co.TeamLuna.CharlotteLightRail.drive') {
-        // userDefaults.set('SavedDirectionsChoice', 'driving');
-        DefaultPreference.set('SavedDirectionsChoice', 'driving');
+        defaults.set('SavedDirectionsChoice', 'driving');
       } else {
-        // userDefaults.set('SavedDirectionsChoice', 'walking');
-        DefaultPreference.set('SavedDirectionsChoice', 'walking');
+        defaults.set('SavedDirectionsChoice', 'walking');
       }
     } else {
-      // userDefaults.get('SavedDirectionsChoice')
-      DefaultPreference.get('SavedDirectionsChoice')
+      defaults.get('SavedDirectionsChoice')
         .then(data => this.fetchDistances(data))
         .catch((err) => {
           this.fetchDistances('walking');

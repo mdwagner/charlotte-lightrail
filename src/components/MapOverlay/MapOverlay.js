@@ -1,8 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Alert, Image, AsyncStorage } from 'react-native';
-// import userDefaults from 'react-native-user-defaults';
-import DefaultPreference from 'react-native-default-preference';
+import { Alert, Image, AsyncStorage, Platform } from 'react-native';
+if (Platform.OS === 'ios') {
+  const defaults = require('react-native-user-defaults');
+} else if (Platform.OS === 'android') {
+  const defaults = require('react-native-default-preference');
+}
 import LocationButton from '../LocationButton';
 import StationSlider from '../StationSlider';
 import {
@@ -49,8 +52,7 @@ export default class MapOverlay extends React.Component {
     } else {
       value = 'walking';
     }
-    DefaultPreference.set('SavedDirectionsChoice', JSON.stringify(value)).catch(err => console.log(err));
-    // AsyncStorage.setItem('SavedDirectionsChoice', JSON.stringify(value)).catch(err => console.log(err));
+    defaults.set('SavedDirectionsChoice', JSON.stringify(value)).catch(err => console.log(err));
     fetchNearest(value);
     this.setState({
       ...this.state,
@@ -74,7 +76,7 @@ export default class MapOverlay extends React.Component {
                 <HelpView>
                   <Image
                     // eslint-disable-next-line
-                    source={require('assets/icons/help/ic_help_white.png')}
+                    source={require('../../assets/icons/help/ic_help_white.png')}
                   />
                 </HelpView>
               </AboutTouchableOpacity>

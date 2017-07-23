@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView, View } from 'react-native';
-import { deviceProps } from 'helpers/device';
+import { deviceProps } from '../../helpers/device';
 import {
   AttributionView, BottomSectionView, CalloutSectionView,
   CreditSectionView, MapboxIconImage
 } from './StationSliderCss';
 import StationCard from '../StationCard';
 import AttributionButton from '../AttributionButton';
-import { blueStops } from 'helpers/config';
-import { mapboxIcon } from 'assets/icons/mapbox-icon';
+import { blueStops } from '../../helpers/config';
+import { mapboxIcon } from '../../assets/icons/mapbox-icon';
 
 export default class StationSlider extends React.Component {
 
