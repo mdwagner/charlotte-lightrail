@@ -6,7 +6,8 @@ if (Platform.OS === 'ios') {
 // import QuickActions from 'react-native-quick-actions';
 import Mapbox, { MapView } from 'react-native-mapbox-gl';
 import moment from 'moment';
-import userDefaults from 'react-native-user-defaults';
+// import userDefaults from 'react-native-user-defaults';
+import DefaultPreference from 'react-native-default-preference';
 import {
   containerStyle, ContainerView, VisibleView
 } from './RailMapCss';
@@ -114,12 +115,15 @@ export default class RailMap extends React.Component {
     if (action) {
       this.fetchDistances(action.type === 'co.TeamLuna.CharlotteLightRail.drive' ? 'driving' : 'walking');
       if (action.type === 'co.TeamLuna.CharlotteLightRail.drive') {
-        userDefaults.set('SavedDirectionsChoice', 'driving');
+        // userDefaults.set('SavedDirectionsChoice', 'driving');
+        DefaultPreference.set('SavedDirectionsChoice', 'driving');
       } else {
-        userDefaults.set('SavedDirectionsChoice', 'walking');
+        // userDefaults.set('SavedDirectionsChoice', 'walking');
+        DefaultPreference.set('SavedDirectionsChoice', 'walking');
       }
     } else {
-      userDefaults.get('SavedDirectionsChoice')
+      // userDefaults.get('SavedDirectionsChoice')
+      DefaultPreference.get('SavedDirectionsChoice')
         .then(data => this.fetchDistances(data))
         .catch((err) => {
           this.fetchDistances('walking');

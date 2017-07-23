@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Alert, Image, AsyncStorage } from 'react-native';
 // import userDefaults from 'react-native-user-defaults';
+import DefaultPreference from 'react-native-default-preference';
 import LocationButton from '../LocationButton';
 import StationSlider from '../StationSlider';
 import {
@@ -48,8 +49,8 @@ export default class MapOverlay extends React.Component {
     } else {
       value = 'walking';
     }
-    // userDefaults.set('SavedDirectionsChoice', value).catch(err => console.log(err));
-    AsyncStorage.setItem('SavedDirectionsChoice', JSON.stringify(value)).catch(err => console.log(err));
+    DefaultPreference.set('SavedDirectionsChoice', JSON.stringify(value)).catch(err => console.log(err));
+    // AsyncStorage.setItem('SavedDirectionsChoice', JSON.stringify(value)).catch(err => console.log(err));
     fetchNearest(value);
     this.setState({
       ...this.state,
