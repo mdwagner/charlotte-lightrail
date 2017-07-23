@@ -1,10 +1,6 @@
 import React from 'react';
-import { ActionSheetIOS, Alert, Platform } from 'react-native';
-if (Platform.OS === 'ios') {
-  const defaults = require('react-native-user-defaults');
-} else if (Platform.OS === 'android') {
-  const defaults = require('react-native-default-preference');
-}
+import { ActionSheetIOS, Alert } from 'react-native';
+import defaults from 'react-native-default-preference';
 import { AttributionTouchableOpacity, AttributionIconImage } from './AttributionButtonCss';
 import { displayLink } from '../../helpers/config';
 

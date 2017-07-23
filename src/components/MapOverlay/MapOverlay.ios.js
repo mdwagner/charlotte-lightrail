@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Alert, Image, AsyncStorage, Platform } from 'react-native';
-if (Platform.OS === 'ios') {
-  const defaults = require('react-native-user-defaults');
-} else if (Platform.OS === 'android') {
-  const defaults = require('react-native-default-preference');
-}
+import { Alert, Image, AsyncStorage } from 'react-native';
+import defaults from 'react-native-user-defaults';
 import LocationButton from '../LocationButton';
 import StationSlider from '../StationSlider';
 import {

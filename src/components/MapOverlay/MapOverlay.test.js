@@ -1,6 +1,7 @@
 import React from 'react';
 import { snapshotStyledComponent } from '../../helpers/snapshotStyledComponent';
-import MapOverlay from './MapOverlay';
+import MapOverlay from './MapOverlay.ios';
+jest.mock('react-native-user-defaults', () => jest.fn());
 jest.mock('SegmentedControlIOS');
 import renderer from 'react-test-renderer';
 
@@ -8,6 +9,7 @@ describe('<MapOverlay />', () => {
   let props;
 
   beforeAll(() => {
+    // ReactNative.mockImplementation(() => ({ Platform: 'ios' }));
     props = {
       connected: true,
       loading: false,
@@ -21,6 +23,7 @@ describe('<MapOverlay />', () => {
   });
 
   it('renders correctly', () => {
+    // const MapOverlay = require('./MapOverlay');
     snapshotStyledComponent(
       <MapOverlay {...props} />
     );

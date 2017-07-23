@@ -1,4 +1,5 @@
 import React from 'react';
+import 'react-native';
 import { snapshotStyledComponent } from '../../helpers/snapshotStyledComponent';
 import StationSlider from './StationSlider';
 import renderer from 'react-test-renderer';
