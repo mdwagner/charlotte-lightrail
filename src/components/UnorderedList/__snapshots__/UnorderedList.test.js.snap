@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<UnorderedList /> renders correctly 1`] = `
 <View>
   <View
@@ -8,7 +10,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
         },
         undefined,
       ]
-    }>
+    }
+  >
     <View
       style={
         Array [
@@ -17,7 +20,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
           },
           undefined,
         ]
-      }>
+      }
+    >
       <Text
         accessible={true}
         allowFontScaling={false}
@@ -30,7 +34,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+      >
         ●
       </Text>
     </View>
@@ -44,7 +49,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
           },
           undefined,
         ]
-      }>
+      }
+    >
       <Text
         accessible={true}
         allowFontScaling={false}
@@ -57,7 +63,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+      >
         Find the closest station
       </Text>
     </View>
@@ -70,7 +77,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
         },
         undefined,
       ]
-    }>
+    }
+  >
     <View
       style={
         Array [
@@ -79,7 +87,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
           },
           undefined,
         ]
-      }>
+      }
+    >
       <Text
         accessible={true}
         allowFontScaling={false}
@@ -92,7 +101,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+      >
         ●
       </Text>
     </View>
@@ -106,7 +116,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
           },
           undefined,
         ]
-      }>
+      }
+    >
       <Text
         accessible={true}
         allowFontScaling={false}
@@ -119,7 +130,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+      >
         Get directions, on foot, or by car
       </Text>
     </View>
@@ -132,7 +144,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
         },
         undefined,
       ]
-    }>
+    }
+  >
     <View
       style={
         Array [
@@ -141,7 +154,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
           },
           undefined,
         ]
-      }>
+      }
+    >
       <Text
         accessible={true}
         allowFontScaling={false}
@@ -154,7 +168,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+      >
         ●
       </Text>
     </View>
@@ -168,7 +183,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
           },
           undefined,
         ]
-      }>
+      }
+    >
       <Text
         accessible={true}
         allowFontScaling={false}
@@ -181,7 +197,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+      >
         See when the next train is coming
       </Text>
     </View>
@@ -194,7 +211,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
         },
         undefined,
       ]
-    }>
+    }
+  >
     <View
       style={
         Array [
@@ -203,7 +221,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
           },
           undefined,
         ]
-      }>
+      }
+    >
       <Text
         accessible={true}
         allowFontScaling={false}
@@ -216,7 +235,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+      >
         ●
       </Text>
     </View>
@@ -230,7 +250,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
           },
           undefined,
         ]
-      }>
+      }
+    >
       <Text
         accessible={true}
         allowFontScaling={false}
@@ -243,7 +264,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+      >
         See the full rail schedule
       </Text>
     </View>
@@ -256,7 +278,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
         },
         undefined,
       ]
-    }>
+    }
+  >
     <View
       style={
         Array [
@@ -265,7 +288,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
           },
           undefined,
         ]
-      }>
+      }
+    >
       <Text
         accessible={true}
         allowFontScaling={false}
@@ -278,7 +302,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+      >
         ●
       </Text>
     </View>
@@ -292,7 +317,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
           },
           undefined,
         ]
-      }>
+      }
+    >
       <Text
         accessible={true}
         allowFontScaling={false}
@@ -305,7 +331,8 @@ exports[`<UnorderedList /> renders correctly 1`] = `
             },
             undefined,
           ]
-        }>
+        }
+      >
         See these FAQs about riding the rails
       </Text>
     </View>

@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<AttributionButton /> renders correctly 1`] = `
 <View
   accessibilityComponentType={undefined}
@@ -21,7 +23,8 @@ exports[`<AttributionButton /> renders correctly 1`] = `
       "width": 20,
     }
   }
-  testID={undefined}>
+  testID={undefined}
+>
   <Image
     source={1}
     style={
@@ -32,6 +35,7 @@ exports[`<AttributionButton /> renders correctly 1`] = `
         },
         undefined,
       ]
-    } />
+    }
+  />
 </View>
 `;

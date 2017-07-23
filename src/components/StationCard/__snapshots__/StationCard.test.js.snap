@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`<StationCard /> renders correctly 1`] = `
 <View
   style={
@@ -8,7 +10,8 @@ exports[`<StationCard /> renders correctly 1`] = `
       },
       undefined,
     ]
-  }>
+  }
+>
   <View
     style={
       Array [
@@ -28,7 +31,8 @@ exports[`<StationCard /> renders correctly 1`] = `
         },
         undefined,
       ]
-    } />
+    }
+  />
   <View
     style={
       Array [
@@ -39,12 +43,14 @@ exports[`<StationCard /> renders correctly 1`] = `
         },
         undefined,
       ]
-    }>
+    }
+  >
     <ActivityIndicator
       animating={true}
       color="#999999"
       hidesWhenStopped={true}
-      size="large" />
+      size="large"
+    />
     <Text
       accessible={true}
       allowFontScaling={false}
@@ -59,7 +65,8 @@ exports[`<StationCard /> renders correctly 1`] = `
           },
           undefined,
         ]
-      }>
+      }
+    >
       Finding nearest station...
     </Text>
   </View>
