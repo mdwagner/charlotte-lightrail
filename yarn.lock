@@ -4402,6 +4402,12 @@ react-native-quick-actions@0.1.5:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/react-native-quick-actions/-/react-native-quick-actions-0.1.5.tgz#2176aed651d6e37fc7733bd608f297f3645c981b"
 
+react-native-segmented-control-tab@mdwagner/react-native-segmented-control-tab:
+  version "3.2.1"
+  resolved "https://codeload.github.com/mdwagner/react-native-segmented-control-tab/tar.gz/ab0d569470f94b2d5b9a3718f9244a836640f358"
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-tab-view@^0.0.65:
   version "0.0.65"
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-0.0.65.tgz#b685ea3081ff7c96486cd997361026c407302c59"
