@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ActivityIndicator, Image } from 'react-native';
-import { blueStops } from '../../helpers/config';
-import { startNavigation } from '../../helpers/helpers';
-import { deviceProps } from '../../helpers/device';
+import { blueStops, startNavigation, deviceProps } from '../../helpers';
 import DirectionsButton from '../DirectionsButton';
 import {
   NearestContainerView, TriangleView, InfoContainerView,

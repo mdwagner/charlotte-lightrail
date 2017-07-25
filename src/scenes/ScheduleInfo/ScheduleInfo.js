@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { InteractionManager, Text, View } from 'react-native';
 import moment from 'moment';
 import ScheduleInfoHeader from '../../components/ScheduleInfoHeader';
-import { blueStops } from '../../helpers/config';
-import { getScheduleDay } from '../../helpers/scheduleCalcs';
-import { deviceProps } from '../../helpers/device';
+import { blueStops, deviceProps, getScheduleDay } from '../../helpers';
 import {
   BoldWhiteText, DescriptionText, GrayText, TableCellView,
   HorizontalLineInsideLeftView, HorizontalLineInsideRightView,

@@ -1,5 +1,5 @@
 import { Linking } from 'react-native';
-import schedules from './schedules.json';
+import schedules from './staticData.json';
 import { MAPBOX_API_KEY } from 'env';
 
 export const mapboxApiKey = process.env.MAPBOX_API_KEY ? process.env.MAPBOX_API_KEY : MAPBOX_API_KEY;

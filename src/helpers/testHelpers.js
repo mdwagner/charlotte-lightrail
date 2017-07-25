@@ -11,3 +11,9 @@ export const snapshotStyledComponent = (component) => {
   ).toJSON()
   expect(snapshot).toMatchSnapshot();
 };
+
+export const themeStyledComponent = (component) => (
+  <ThemeProvider theme={COLORS}>
+    {component}
+  </ThemeProvider>
+);

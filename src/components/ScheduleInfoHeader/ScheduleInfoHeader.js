@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Dimensions, SegmentedControlIOS } from 'react-native';
 import { WrapView, TitleText, ScheduleSelectorView } from './ScheduleInfoHeaderCss';
-import { getScheduleDay } from '../../helpers/scheduleCalcs';
-import { deviceProps } from '../../helpers/device';
+import { getScheduleDay, deviceProps } from '../../helpers';
 
 const { deviceScreen } = deviceProps;
 

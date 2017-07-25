@@ -7,16 +7,23 @@ import moment from 'moment';
 import {
   containerStyle, ContainerView, VisibleView
 } from './RailMapCss';
-import { blueStops, mapboxApiKey, timeInterval, SIMULATE_DISCONNECTED } from '../../helpers/config';
-import { distanceTimeConverter, getNextTrainTime } from '../../helpers/scheduleCalcs';
-import { blueLine, getAnnotations, getStopCallouts } from '../../helpers/mapSetup';
-import { mapboxDistanceAPI } from '../../helpers/mapboxDistanceAPI';
-import { deviceProps } from '../../helpers/device';
+// import { blueStops, mapboxApiKey, timeInterval, SIMULATE_DISCONNECTED } from '../../helpers/config';
+// import { distanceTimeConverter, getNextTrainTime } from '../../helpers/scheduleCalcs';
+// import { getAnnotations, getStopCallouts } from '../../helpers/mapSetup';
+// import { mapboxDistanceAPI } from '../../helpers/mapboxDistanceAPI';
+// import { deviceProps } from '../../helpers/device';
+// import { blueLine } from '../../helpers/staticData.json';
+import {
+  blueStops, mapboxApiKey, timeInterval, SIMULATE_DISCONNECTED,
+  distanceTimeConverter, getNextTrainTime, getAnnotations,
+  mapboxDistanceAPI, deviceProps, staticData
+} from '../../helpers';
 import MapOverlay from '../../components/MapOverlay';
 
 const {
   defaultCenter, defaultZoom, deviceName
 } = deviceProps;
+const { blueLine } = staticData;
 
 Mapbox.setAccessToken(mapboxApiKey);
 

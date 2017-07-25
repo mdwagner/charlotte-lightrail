@@ -2,7 +2,7 @@ import React from 'react';
 import { ActionSheetIOS, Alert } from 'react-native';
 import defaults from 'react-native-default-preference';
 import { AttributionTouchableOpacity, AttributionIconImage } from './AttributionButtonCss';
-import { displayLink } from '../../helpers/config';
+import { displayLink } from '../../helpers';
 
 export default class AttributionButton extends React.Component {
 

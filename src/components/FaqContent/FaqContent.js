@@ -1,7 +1,7 @@
 import React from 'react';
 import { ContentText, TeamLunaText } from './FaqContentCss';
 import UnorderedList from '../UnorderedList';
-import { displayLink } from '../../helpers/config';
+import { displayLink } from '../../helpers';
 
 export const faqContent = [
   {

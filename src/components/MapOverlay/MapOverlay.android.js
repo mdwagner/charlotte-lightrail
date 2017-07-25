@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Alert, Image, AsyncStorage } from 'react-native';
+import { Alert, Image } from 'react-native';
 import defaults from 'react-native-default-preference';
 import LocationButton from '../LocationButton';
 import StationSlider from '../StationSlider';

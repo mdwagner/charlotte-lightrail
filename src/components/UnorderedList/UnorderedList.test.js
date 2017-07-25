@@ -1,5 +1,5 @@
 import React from 'react';
-import { snapshotStyledComponent } from '../../helpers/snapshotStyledComponent';
+import { snapshotStyledComponent } from '../../helpers';
 import UnorderedList from './UnorderedList';
 import renderer from 'react-test-renderer';
 
