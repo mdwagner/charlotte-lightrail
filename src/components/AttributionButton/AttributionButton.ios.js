@@ -2,11 +2,12 @@ import React from 'react';
 import { ActionSheetIOS, Alert } from 'react-native';
 import defaults from 'react-native-user-defaults';
 import { AttributionTouchableOpacity, AttributionIconImage } from './AttributionButtonCss';
-import { displayLink } from '../../helpers';
+import { withHelpers } from '../../helpers';
 
-export default class AttributionButton extends React.Component {
+class AttributionButton extends React.Component {
 
   showActionSheet = () => {
+    const { displayLink } = this.props.helpers;
     const options = [
       '© Mapbox',
       '© OpenStreetMap',
@@ -66,3 +67,5 @@ export default class AttributionButton extends React.Component {
     );
   }
 }
+
+export default withHelpers(AttributionButton);

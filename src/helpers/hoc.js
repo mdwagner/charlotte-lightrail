@@ -1,32 +1,42 @@
 import React from 'react';
-// import { ThemeProvider } from 'styled-components/native';
-// import { COLORS } from '../assets/styles/constants';
-// import renderer from 'react-test-renderer';
-import { themeStyledComponent, snapshotStyledComponent } from './';
-
-// export const snapshotStyledComponent = (component) => {
-//   const snapshot = renderer.create(
-//     <ThemeProvider theme={COLORS}>
-//       {component}
-//     </ThemeProvider>
-//   ).toJSON()
-//   expect(snapshot).toMatchSnapshot();
-// };
+import * as configHelpers from './config';
+import * as deviceHelpers from './device';
+import * as helperHelpers from './helpers';
+import * as mapSetupHelpers from './mapSetup';
+import * as scheduleHelpers from './scheduleCalcs';
+import staticData from './staticData.json';
 
 export function withHelpers(Component) {
   return class extends React.Component {
     constructor(props) {
       super(props);
-      this.themeStyledComponent = themeStyledComponent.bind(this);
-      this.snapshotStyledComponent = snapshotStyledComponent.bind(this);
     }
     render() {
       const newProps = {
-        themeStyledComponent: this.themeStyledComponent,
-        snapshotStyledComponent: this.snapshotStyledComponent
+        ...configHelpers,
+        ...deviceHelpers,
+        ...helperHelpers,
+        ...mapSetupHelpers,
+        ...scheduleHelpers
       };
       return (
-        <Component {...newProps} />
+        <Component {...this.props} helpers={newProps} />
+      );
+    }
+  };
+}
+
+export function withStaticData(Component) {
+  return class extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+    render() {
+      const newProps = {
+        staticData
+      };
+      return (
+        <Component {...this.props} staticData={newProps} />
       );
     }
   };
