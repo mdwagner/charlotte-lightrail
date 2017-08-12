@@ -25,7 +25,7 @@ class RailMap extends React.Component {
       timeInterval: PropTypes.number.isRequired,
       blueStops: PropTypes.array.isRequired,
       getNextTrainTime: PropTypes.func.isRequired,
-      mapboxDistanceAPI: PropTypes.func.isRequired,
+      mapboxDistanceAPI: PropTypes.object.isRequired,
       distanceTimeConverter: PropTypes.func.isRequired,
       SIMULATE_DISCONNECTED: PropTypes.bool.isRequired
     }),
