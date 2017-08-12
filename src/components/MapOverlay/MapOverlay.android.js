@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Alert, Image } from 'react-native';
 import defaults from 'react-native-default-preference';
+import SegmentedControlTab from 'react-native-segmented-control-tab';
 import LocationButton from '../LocationButton';
 import StationSlider from '../StationSlider';
 import {
   AboutTouchableOpacity, ContainerView, HeaderContainerView,
-  HeaderView, HelpView, ModeSelectorSegmentedControlIOS,
-  OfflineButtonTouchableOpacity, OfflineText
+  HeaderView, HelpView, OfflineButtonTouchableOpacity, OfflineText
 } from './MapOverlayCss';
-import SegmentedControlTab from 'react-native-segmented-control-tab';
 
 export default class MapOverlay extends React.Component {
 
@@ -19,11 +18,14 @@ export default class MapOverlay extends React.Component {
     fetchNearest: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
     locationDenied: PropTypes.bool.isRequired,
-    mode: PropTypes.string.isRequired,
+    mode: PropTypes.string.isRequired, // eslint-disable-line
     nearestStationIndex: PropTypes.number, // eslint-disable-line
     seeAllStations: PropTypes.func.isRequired,
     showCallout: PropTypes.func.isRequired, // eslint-disable-line
     stationDistances: PropTypes.array, // eslint-disable-line
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func.isRequired
+    })
   }
 
   state = {
@@ -52,13 +54,13 @@ export default class MapOverlay extends React.Component {
     fetchNearest(value);
     this.setState({
       ...this.state,
-      selectedIndex: index,
+      selectedIndex: index
     });
   }
 
   render() {
     const { displaySchedule } = this.state;
-    const { connected, error, loading, locationDenied, seeAllStations } = this.props;
+    const { connected, error, loading, locationDenied, seeAllStations, mode, fetchNearest } = this.props;
     const { navigate } = this.props.navigation;
 
     const failText = locationDenied ? 'Location Disabled - Enable' : 'Offline Mode - Try Again';
@@ -76,19 +78,21 @@ export default class MapOverlay extends React.Component {
                   />
                 </HelpView>
               </AboutTouchableOpacity>
-              {connected && 
-                //!locationDenied  
-                //?
+              {connected && !locationDenied
+                ?
                   <SegmentedControlTab
                     values={['Driving', 'Walking']}
-                    selectedIndex={this.state.selectedIndex}
-                    onTabPress={this.handleIndexChange}
-                    tabsContainerStyle={{flex: 1.5, marginBottom: 10}}
+                    selectedIndex={mode === 'driving' ? 0 : 1}
+                    onValueChange={(value) => {
+                      defaults.set('SavedDirectionsChoice', value.toLowerCase()).catch(err => console.log(err));
+                      fetchNearest(value.toLowerCase());
+                    }}
+                    tintColor="white"
                   />
-                //:
-                   //<OfflineButtonTouchableOpacity onPress={() => this.handleZeroState()}> 
-                    //<OfflineText allowFontScaling={false}>{failText}</OfflineText>
-                  //</OfflineButtonTouchableOpacity>
+                :
+                  <OfflineButtonTouchableOpacity onPress={() => this.handleZeroState()}>
+                    <OfflineText allowFontScaling={false}>{failText}</OfflineText>
+                  </OfflineButtonTouchableOpacity>
               }
               <LocationButton seeAllStations={seeAllStations} error={error} loading={loading} />
             </HeaderContainerView>

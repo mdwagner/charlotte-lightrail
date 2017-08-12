@@ -1,10 +1,10 @@
 import React from 'react';
-import { AppState, NetInfo, StatusBar, View, DeviceEventEmitter, Platform } from 'react-native';
+import { AppState, NetInfo, StatusBar, DeviceEventEmitter } from 'react-native';
 import defaults from 'react-native-default-preference';
 import Mapbox, { MapView } from 'react-native-mapbox-gl';
 import moment from 'moment';
 import {
-  containerStyle, ContainerView, VisibleView
+  ContainerView, VisibleView
 } from './RailMapCss';
 // import { blueStops, mapboxApiKey, timeInterval, SIMULATE_DISCONNECTED } from '../../helpers/config';
 // import { distanceTimeConverter, getNextTrainTime } from '../../helpers/scheduleCalcs';
@@ -12,31 +12,33 @@ import {
 // import { mapboxDistanceAPI } from '../../helpers/mapboxDistanceAPI';
 // import { deviceProps } from '../../helpers/device';
 // import { blueLine } from '../../helpers/staticData.json';
-import {
-  blueStops, mapboxApiKey, timeInterval, SIMULATE_DISCONNECTED,
-  distanceTimeConverter, getNextTrainTime, getAnnotations,
-  mapboxDistanceAPI, deviceProps, staticData
-} from '../../helpers';
+// import {
+  // blueStops, mapboxApiKey, timeInterval, SIMULATE_DISCONNECTED,
+  // distanceTimeConverter, getNextTrainTime, getAnnotations,
+  // mapboxDistanceAPI, deviceProps, staticData
+// } from '../../helpers';
+import { withHelpers, withStaticData } from '../../helpers';
+import { mapboxApiKey } from '../../helpers/config';
 import MapOverlay from '../../components/MapOverlay';
 
-const {
-  defaultCenter, defaultZoom, deviceName
-} = deviceProps;
-const { blueLine } = staticData;
+// const {
+//   defaultCenter, defaultZoom, deviceName
+// } = deviceProps;
+// const { blueLine } = staticData;
 
 Mapbox.setAccessToken(mapboxApiKey);
 
-export default class RailMap extends React.Component {
+class RailMap extends React.Component {
   state = {
-    annotations: [...getAnnotations(), {
-      coordinates: blueLine,
+    annotations: [...this.props.helpers.getAnnotations(), {
+      coordinates: this.props.staticData.blueLine,
       type: 'polyline',
       strokeColor: '#009ada',
       strokeWidth: 4,
       strokeAlpha: 0.9,
       id: 'foobar',
     }],
-    center: defaultCenter,
+    center: this.props.helpers.deviceProps.defaultCenter,
     connected: true,
     error: null,
     lastAppUpdate: null,
@@ -47,12 +49,12 @@ export default class RailMap extends React.Component {
     nearestStationIndex: null,
     connectionDetected: true,
     stationDistances: null,
-    ...getStopCallouts(), // inject stop callouts generated above into initial state object
-    zoom: defaultZoom,
+    ...this.props.helpers.getStopCallouts(), // inject stop callouts generated above into initial state object
+    zoom: this.props.helpers.deviceProps.defaultZoom,
   }
 
   componentDidMount() {
-    this.interval = setInterval(this.keepTime, timeInterval);
+    this.interval = setInterval(this.keepTime, this.props.helpers.timeInterval);
 
     this.setDefaultDirections();
 
@@ -422,3 +424,5 @@ export default class RailMap extends React.Component {
     );
   }
 }
+
+export default withStaticData(withHelpers(RailMap));
