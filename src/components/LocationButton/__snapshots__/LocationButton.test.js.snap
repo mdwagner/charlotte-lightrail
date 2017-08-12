@@ -1,5 +1,3 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
 exports[`<LocationButton /> renders correctly with an error 1`] = `
 <View
   accessibilityComponentType={undefined}
@@ -25,8 +23,7 @@ exports[`<LocationButton /> renders correctly with an error 1`] = `
       "paddingTop": 1,
     }
   }
-  testID={undefined}
->
+  testID={undefined}>
   <Image
     inactiveIcon={true}
     source={1}
@@ -37,8 +34,7 @@ exports[`<LocationButton /> renders correctly with an error 1`] = `
         },
         undefined,
       ]
-    }
-  />
+    } />
 </View>
 `;
 
@@ -67,8 +63,7 @@ exports[`<LocationButton /> renders correctly with no error and loading 1`] = `
       "paddingTop": 1,
     }
   }
-  testID={undefined}
->
+  testID={undefined}>
   <Image
     inactiveIcon={true}
     source={1}
@@ -79,8 +74,7 @@ exports[`<LocationButton /> renders correctly with no error and loading 1`] = `
         },
         undefined,
       ]
-    }
-  />
+    } />
 </View>
 `;
 
@@ -109,8 +103,7 @@ exports[`<LocationButton /> renders correctly with no error and not loading 1`] 
       "paddingTop": 1,
     }
   }
-  testID={undefined}
->
+  testID={undefined}>
   <Image
     source={1}
     style={
@@ -120,7 +113,6 @@ exports[`<LocationButton /> renders correctly with no error and not loading 1`] 
         },
         undefined,
       ]
-    }
-  />
+    } />
 </View>
 `;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components/native';
-import { COLORS } from '../assets/styles/constants';
 import renderer from 'react-test-renderer';
+import { COLORS } from '../assets/styles/constants';
 
 export const snapshotStyledComponent = (component) => {
   const snapshot = renderer.create(
@@ -12,7 +12,7 @@ export const snapshotStyledComponent = (component) => {
   expect(snapshot).toMatchSnapshot();
 };
 
-export const themeStyledComponent = (component) => (
+export const themeStyledComponent = component => (
   <ThemeProvider theme={COLORS}>
     {component}
   </ThemeProvider>

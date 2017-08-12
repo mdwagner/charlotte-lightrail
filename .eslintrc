@@ -57,19 +57,6 @@
     "import/no-unresolved": 1,
     "react/no-unused-prop-types": 1
   },
-  "settings": {
-    "import/resolver": {
-      "babel-module": {
-        "alias": {
-          "assets": "./src/assets",
-          "helpers": "./src/helpers",
-          "components": "./src/components",
-          "scenes": "./src/scenes",
-          "env": "./env.json"
-        }
-      }
-    }
-  },
   "env": {
     "jest/globals": true
   }

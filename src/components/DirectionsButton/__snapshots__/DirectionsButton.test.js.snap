@@ -1,5 +1,3 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
 exports[`<DirectionsButton /> renders correctly 1`] = `
 <View
   accessibilityComponentType={undefined}
@@ -29,8 +27,7 @@ exports[`<DirectionsButton /> renders correctly 1`] = `
       "width": 50,
     }
   }
-  testID={undefined}
->
+  testID={undefined}>
   <Image
     source={1}
     style={
@@ -40,7 +37,6 @@ exports[`<DirectionsButton /> renders correctly 1`] = `
         },
         undefined,
       ]
-    }
-  />
+    } />
 </View>
 `;

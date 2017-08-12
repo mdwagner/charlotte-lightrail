@@ -1,5 +1,3 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
 exports[`<MapOverlay /> renders correctly 1`] = `
 <View
   pointerEvents="box-none"
@@ -14,8 +12,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
       },
       undefined,
     ]
-  }
->
+  }>
   <View
     pointerEvents="box-none"
     style={
@@ -31,8 +28,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
         },
         undefined,
       ]
-    }
-  >
+    }>
     <View
       style={
         Array [
@@ -42,8 +38,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
           },
           undefined,
         ]
-      }
-    >
+      }>
       <View
         accessibilityComponentType={undefined}
         accessibilityLabel={undefined}
@@ -67,8 +62,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
             "paddingTop": 1,
           }
         }
-        testID={undefined}
-      >
+        testID={undefined}>
         <View
           style={
             Array [
@@ -78,11 +72,9 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        >
+          }>
           <Image
-            source={1}
-          />
+            source={1} />
         </View>
       </View>
       <View
@@ -109,8 +101,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
             "paddingTop": 1,
           }
         }
-        testID={undefined}
-      >
+        testID={undefined}>
         <Image
           source={1}
           style={
@@ -120,8 +111,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        />
+          } />
       </View>
     </View>
   </View>
@@ -136,8 +126,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
         },
         undefined,
       ]
-    }
-  >
+    }>
     <View
       style={
         Array [
@@ -146,14 +135,12 @@ exports[`<MapOverlay /> renders correctly 1`] = `
           },
           undefined,
         ]
-      }
-    >
+      }>
       <ScrollView
         automaticallyAdjustContentInsets={false}
         horizontal={true}
         onMomentumScrollEnd={[Function]}
-        pagingEnabled={true}
-      >
+        pagingEnabled={true}>
         <View
           style={
             Array [
@@ -163,8 +150,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        >
+          }>
           <View
             style={
               Array [
@@ -184,8 +170,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          />
+            } />
           <View
             style={
               Array [
@@ -196,14 +181,12 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          >
+            }>
             <ActivityIndicator
               animating={true}
               color="#999999"
               hidesWhenStopped={true}
-              size="large"
-            />
+              size="large" />
             <Text
               accessible={true}
               allowFontScaling={false}
@@ -218,8 +201,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                   },
                   undefined,
                 ]
-              }
-            >
+              }>
               Finding nearest station...
             </Text>
           </View>
@@ -233,8 +215,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        >
+          }>
           <View
             style={
               Array [
@@ -254,8 +235,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          />
+            } />
           <View
             style={
               Array [
@@ -266,14 +246,12 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          >
+            }>
             <ActivityIndicator
               animating={true}
               color="#999999"
               hidesWhenStopped={true}
-              size="large"
-            />
+              size="large" />
             <Text
               accessible={true}
               allowFontScaling={false}
@@ -288,8 +266,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                   },
                   undefined,
                 ]
-              }
-            >
+              }>
               Finding nearest station...
             </Text>
           </View>
@@ -303,8 +280,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        >
+          }>
           <View
             style={
               Array [
@@ -324,8 +300,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          />
+            } />
           <View
             style={
               Array [
@@ -336,14 +311,12 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          >
+            }>
             <ActivityIndicator
               animating={true}
               color="#999999"
               hidesWhenStopped={true}
-              size="large"
-            />
+              size="large" />
             <Text
               accessible={true}
               allowFontScaling={false}
@@ -358,8 +331,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                   },
                   undefined,
                 ]
-              }
-            >
+              }>
               Finding nearest station...
             </Text>
           </View>
@@ -373,8 +345,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        >
+          }>
           <View
             style={
               Array [
@@ -394,8 +365,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          />
+            } />
           <View
             style={
               Array [
@@ -406,14 +376,12 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          >
+            }>
             <ActivityIndicator
               animating={true}
               color="#999999"
               hidesWhenStopped={true}
-              size="large"
-            />
+              size="large" />
             <Text
               accessible={true}
               allowFontScaling={false}
@@ -428,8 +396,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                   },
                   undefined,
                 ]
-              }
-            >
+              }>
               Finding nearest station...
             </Text>
           </View>
@@ -443,8 +410,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        >
+          }>
           <View
             style={
               Array [
@@ -464,8 +430,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          />
+            } />
           <View
             style={
               Array [
@@ -476,14 +441,12 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          >
+            }>
             <ActivityIndicator
               animating={true}
               color="#999999"
               hidesWhenStopped={true}
-              size="large"
-            />
+              size="large" />
             <Text
               accessible={true}
               allowFontScaling={false}
@@ -498,8 +461,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                   },
                   undefined,
                 ]
-              }
-            >
+              }>
               Finding nearest station...
             </Text>
           </View>
@@ -513,8 +475,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        >
+          }>
           <View
             style={
               Array [
@@ -534,8 +495,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          />
+            } />
           <View
             style={
               Array [
@@ -546,14 +506,12 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          >
+            }>
             <ActivityIndicator
               animating={true}
               color="#999999"
               hidesWhenStopped={true}
-              size="large"
-            />
+              size="large" />
             <Text
               accessible={true}
               allowFontScaling={false}
@@ -568,8 +526,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                   },
                   undefined,
                 ]
-              }
-            >
+              }>
               Finding nearest station...
             </Text>
           </View>
@@ -583,8 +540,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        >
+          }>
           <View
             style={
               Array [
@@ -604,8 +560,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          />
+            } />
           <View
             style={
               Array [
@@ -616,14 +571,12 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          >
+            }>
             <ActivityIndicator
               animating={true}
               color="#999999"
               hidesWhenStopped={true}
-              size="large"
-            />
+              size="large" />
             <Text
               accessible={true}
               allowFontScaling={false}
@@ -638,8 +591,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                   },
                   undefined,
                 ]
-              }
-            >
+              }>
               Finding nearest station...
             </Text>
           </View>
@@ -653,8 +605,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        >
+          }>
           <View
             style={
               Array [
@@ -674,8 +625,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          />
+            } />
           <View
             style={
               Array [
@@ -686,14 +636,12 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          >
+            }>
             <ActivityIndicator
               animating={true}
               color="#999999"
               hidesWhenStopped={true}
-              size="large"
-            />
+              size="large" />
             <Text
               accessible={true}
               allowFontScaling={false}
@@ -708,8 +656,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                   },
                   undefined,
                 ]
-              }
-            >
+              }>
               Finding nearest station...
             </Text>
           </View>
@@ -723,8 +670,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        >
+          }>
           <View
             style={
               Array [
@@ -744,8 +690,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          />
+            } />
           <View
             style={
               Array [
@@ -756,14 +701,12 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          >
+            }>
             <ActivityIndicator
               animating={true}
               color="#999999"
               hidesWhenStopped={true}
-              size="large"
-            />
+              size="large" />
             <Text
               accessible={true}
               allowFontScaling={false}
@@ -778,8 +721,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                   },
                   undefined,
                 ]
-              }
-            >
+              }>
               Finding nearest station...
             </Text>
           </View>
@@ -793,8 +735,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        >
+          }>
           <View
             style={
               Array [
@@ -814,8 +755,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          />
+            } />
           <View
             style={
               Array [
@@ -826,14 +766,12 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          >
+            }>
             <ActivityIndicator
               animating={true}
               color="#999999"
               hidesWhenStopped={true}
-              size="large"
-            />
+              size="large" />
             <Text
               accessible={true}
               allowFontScaling={false}
@@ -848,8 +786,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                   },
                   undefined,
                 ]
-              }
-            >
+              }>
               Finding nearest station...
             </Text>
           </View>
@@ -863,8 +800,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        >
+          }>
           <View
             style={
               Array [
@@ -884,8 +820,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          />
+            } />
           <View
             style={
               Array [
@@ -896,14 +831,12 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          >
+            }>
             <ActivityIndicator
               animating={true}
               color="#999999"
               hidesWhenStopped={true}
-              size="large"
-            />
+              size="large" />
             <Text
               accessible={true}
               allowFontScaling={false}
@@ -918,8 +851,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                   },
                   undefined,
                 ]
-              }
-            >
+              }>
               Finding nearest station...
             </Text>
           </View>
@@ -933,8 +865,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        >
+          }>
           <View
             style={
               Array [
@@ -954,8 +885,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          />
+            } />
           <View
             style={
               Array [
@@ -966,14 +896,12 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          >
+            }>
             <ActivityIndicator
               animating={true}
               color="#999999"
               hidesWhenStopped={true}
-              size="large"
-            />
+              size="large" />
             <Text
               accessible={true}
               allowFontScaling={false}
@@ -988,8 +916,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                   },
                   undefined,
                 ]
-              }
-            >
+              }>
               Finding nearest station...
             </Text>
           </View>
@@ -1003,8 +930,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        >
+          }>
           <View
             style={
               Array [
@@ -1024,8 +950,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          />
+            } />
           <View
             style={
               Array [
@@ -1036,14 +961,12 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          >
+            }>
             <ActivityIndicator
               animating={true}
               color="#999999"
               hidesWhenStopped={true}
-              size="large"
-            />
+              size="large" />
             <Text
               accessible={true}
               allowFontScaling={false}
@@ -1058,8 +981,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                   },
                   undefined,
                 ]
-              }
-            >
+              }>
               Finding nearest station...
             </Text>
           </View>
@@ -1073,8 +995,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        >
+          }>
           <View
             style={
               Array [
@@ -1094,8 +1015,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          />
+            } />
           <View
             style={
               Array [
@@ -1106,14 +1026,12 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          >
+            }>
             <ActivityIndicator
               animating={true}
               color="#999999"
               hidesWhenStopped={true}
-              size="large"
-            />
+              size="large" />
             <Text
               accessible={true}
               allowFontScaling={false}
@@ -1128,8 +1046,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                   },
                   undefined,
                 ]
-              }
-            >
+              }>
               Finding nearest station...
             </Text>
           </View>
@@ -1143,8 +1060,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        >
+          }>
           <View
             style={
               Array [
@@ -1164,8 +1080,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          />
+            } />
           <View
             style={
               Array [
@@ -1176,14 +1091,12 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                 },
                 undefined,
               ]
-            }
-          >
+            }>
             <ActivityIndicator
               animating={true}
               color="#999999"
               hidesWhenStopped={true}
-              size="large"
-            />
+              size="large" />
             <Text
               accessible={true}
               allowFontScaling={false}
@@ -1198,8 +1111,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
                   },
                   undefined,
                 ]
-              }
-            >
+              }>
               Finding nearest station...
             </Text>
           </View>
@@ -1217,8 +1129,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
           },
           undefined,
         ]
-      }
-    >
+      }>
       <View
         style={
           Array [
@@ -1228,8 +1139,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
             },
             undefined,
           ]
-        }
-      >
+        }>
         <Image
           source={
             Object {
@@ -1248,16 +1158,14 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        />
+          } />
       </View>
       <View
         style={
           Object {
             "flex": 1,
           }
-        }
-      />
+        } />
       <View
         accessibilityComponentType={undefined}
         accessibilityLabel={undefined}
@@ -1280,8 +1188,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
             "width": 20,
           }
         }
-        testID={undefined}
-      >
+        testID={undefined}>
         <Image
           source={1}
           style={
@@ -1292,8 +1199,7 @@ exports[`<MapOverlay /> renders correctly 1`] = `
               },
               undefined,
             ]
-          }
-        />
+          } />
       </View>
     </View>
   </View>

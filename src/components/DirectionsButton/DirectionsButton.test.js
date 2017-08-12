@@ -1,5 +1,5 @@
 import React from 'react';
-import { snapshotStyledComponent } from '../../helpers';
+import { snapshotStyledComponent } from '../../helpers/testHelpersHOC';
 import DirectionsButton from './DirectionsButton';
 
 describe('<DirectionsButton />', () => {

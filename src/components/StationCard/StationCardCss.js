@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { deviceProps } from '../../helpers';
+import { deviceProps } from '../../helpers/device';
 
 export const NearestContainerView = styled.View`
   height: ${deviceProps.deviceVariableSizes['calloutHeight']}px;

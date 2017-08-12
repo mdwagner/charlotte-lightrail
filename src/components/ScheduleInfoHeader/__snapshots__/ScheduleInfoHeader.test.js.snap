@@ -1,5 +1,3 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
 exports[`<ScheduleInfoHeader /> renders correctly 1`] = `
 <View
   style={
@@ -15,8 +13,7 @@ exports[`<ScheduleInfoHeader /> renders correctly 1`] = `
       undefined,
     ]
   }
-  width={375}
->
+  width={375}>
   <Text
     accessible={true}
     allowFontScaling={false}
@@ -32,8 +29,7 @@ exports[`<ScheduleInfoHeader /> renders correctly 1`] = `
         },
         undefined,
       ]
-    }
-  >
+    }>
     Test Station
   </Text>
   <View
@@ -47,7 +43,6 @@ exports[`<ScheduleInfoHeader /> renders correctly 1`] = `
         },
         undefined,
       ]
-    }
-  />
+    } />
 </View>
 `;

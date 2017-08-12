@@ -1,7 +1,7 @@
 import { mapboxApiKey } from './config';
 
 export const mapboxDistanceAPI = {
-  getDistance(origin, destinations, mode) {
+  async getDistance(origin, destinations, mode) {
     const coordinates = destinations;
     coordinates.unshift(origin);
 
@@ -10,12 +10,13 @@ export const mapboxDistanceAPI = {
       const coordinatesString = coordinates.map(coordinate => coordinate.toString());
       const coordinatesQuery = coordinatesString.join(';');
       const url = `https://api.mapbox.com/${endpoint}/${coordinatesQuery}?access_token=${mapboxApiKey}`;
-      return fetch(url).then(res => res.json());
+      const response = await fetch(url);
+      return response.json();
     }
 
     const endpoint = `distances/v1/mapbox/${mode}`;
     const url = `https://api.mapbox.com/${endpoint}?access_token=${mapboxApiKey}`;
-    return fetch(url, {
+    const response = await fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -23,6 +24,7 @@ export const mapboxDistanceAPI = {
       body: JSON.stringify({
         coordinates
       })
-    }).then(res => res.json());
+    });
+    return response.json();
   }
 };

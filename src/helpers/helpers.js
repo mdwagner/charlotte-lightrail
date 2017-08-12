@@ -26,26 +26,26 @@ export const mapboxDistanceAPI = {
 
     if (__DEV__) {
       const endpoint = `directions-matrix/v1/mapbox/${mode}`;
-      coordinates_string = coordinates.map(coordinate => {
+      const coordinatesString = coordinates.map((coordinate) => {
         return coordinate.toString();
       });
-      coordinates_query = coordinates_string.join(';');
-      const url = `https://api.mapbox.com/${endpoint}/${coordinates_query}?access_token=${mapboxApiKey}`;
+      const coordinatesQuery = coordinatesString.join(';');
+      const url = `https://api.mapbox.com/${endpoint}/${coordinatesQuery}?access_token=${mapboxApiKey}`;
       const res = await fetch(url);
       return res.json();
-    } else {
-      const endpoint = `distances/v1/mapbox/${mode}`;
-      const url = `https://api.mapbox.com/${endpoint}?access_token=${mapboxApiKey}`;
-      const res = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          coordinates,
-        }),
-      });
-      return res.json();
     }
-  },
+
+    const endpoint = `distances/v1/mapbox/${mode}`;
+    const url = `https://api.mapbox.com/${endpoint}?access_token=${mapboxApiKey}`;
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        coordinates
+      })
+    });
+    return res.json();
+  }
 };

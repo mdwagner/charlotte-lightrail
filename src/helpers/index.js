@@ -1,1 +1,2 @@
-export { withHelpers, withStaticData } from './hoc';
+export { withHelpers } from './helpersHOC';
+export { withStaticData } from './staticDataHOC';

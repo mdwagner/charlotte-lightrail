@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Alert, Image, SegmentedControlIOS } from 'react-native';
-import defaults from 'react-native-user-defaults';
+import { Alert, Image } from 'react-native';
+import userDefaults from 'react-native-user-defaults';
 import LocationButton from '../LocationButton';
 import StationSlider from '../StationSlider';
 import {
@@ -10,6 +10,15 @@ import {
   OfflineButtonTouchableOpacity, OfflineText
 } from './MapOverlayCss';
 
+const helpIcon = require('../../assets/icons/help/ic_help_white.png');
+
+/**
+ * NOTE:
+ * The `eslint-disable-line` propTypes are because ESLint doesn't know
+ * that those props are being passed down to the child in a spread.
+ * We could change this in the future by being more specific on which
+ * props NEED to be passed down to the child, but it's a minor thing right now.
+ */
 export default class MapOverlay extends React.Component {
 
   static propTypes = {
@@ -19,10 +28,10 @@ export default class MapOverlay extends React.Component {
     loading: PropTypes.bool.isRequired,
     locationDenied: PropTypes.bool.isRequired,
     mode: PropTypes.string.isRequired,
-    nearestStationIndex: PropTypes.number,
+    nearestStationIndex: PropTypes.number, // eslint-disable-line
     seeAllStations: PropTypes.func.isRequired,
-    showCallout: PropTypes.func.isRequired,
-    stationDistances: PropTypes.array,
+    showCallout: PropTypes.func.isRequired, // eslint-disable-line
+    stationDistances: PropTypes.array, // eslint-disable-line
     navigation: PropTypes.shape({
       navigate: PropTypes.func.isRequired
     })
@@ -55,9 +64,7 @@ export default class MapOverlay extends React.Component {
             <HeaderContainerView>
               <AboutTouchableOpacity onPress={() => navigate('Faq')}>
                 <HelpView>
-                  <Image
-                    source={require('../../assets/icons/help/ic_help_white.png')}
-                  />
+                  <Image source={helpIcon} />
                 </HelpView>
               </AboutTouchableOpacity>
               {connected && !locationDenied

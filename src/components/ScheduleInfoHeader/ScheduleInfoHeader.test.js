@@ -1,5 +1,5 @@
 import React from 'react';
-import { snapshotStyledComponent } from '../../helpers';
+import { snapshotStyledComponent } from '../../helpers/testHelpersHOC';
 import ScheduleInfoHeader from './ScheduleInfoHeader';
 
 jest.mock('SegmentedControlIOS');

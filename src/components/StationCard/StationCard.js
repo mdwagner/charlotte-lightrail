@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ActivityIndicator, Image } from 'react-native';
-import { blueStops, startNavigation, deviceProps } from '../../helpers';
+import { withHelpers } from '../../helpers';
 import DirectionsButton from '../DirectionsButton';
 import {
   NearestContainerView, TriangleView, InfoContainerView,
@@ -13,7 +13,10 @@ import {
   NextTimeWrapView
 } from './StationCardCss';
 
-export default class StationCard extends React.Component {
+const stationDetailIcon = require('../../assets/icons/info/ic_info_white_36pt.png');
+const stationScheduleIcon = require('../../assets/icons/schedule/ic_schedule_white_36pt.png');
+
+class StationCard extends React.Component {
 
   static propTypes = {
     connected: PropTypes.bool.isRequired,
@@ -26,6 +29,11 @@ export default class StationCard extends React.Component {
     stopCallout: PropTypes.object,
     navigation: PropTypes.shape({
       navigate: PropTypes.func.isRequired
+    }),
+    helpers: PropTypes.shape({
+      blueStops: PropTypes.array.isRequired,
+      deviceProps: PropTypes.object.isRequired,
+      startNavigation: PropTypes.func.isRequired
     })
   }
 
@@ -40,6 +48,7 @@ export default class StationCard extends React.Component {
   render() {
     const { connected, loading, mode, nearestStationIndex, panToStation, stationIndex, stopCallout } = this.props;
     const { navigate } = this.props.navigation;
+    const { blueStops, deviceProps, startNavigation } = this.props.helpers;
     const stop = blueStops[stationIndex];
     const onNearestStation = stationIndex === nearestStationIndex;
     if (stopCallout && stopCallout.inbound && !loading) {
@@ -95,14 +104,10 @@ export default class StationCard extends React.Component {
           <ButtonContainerView>
             <ButtonsView>
               <BubbleTouchableOpacity onPress={() => navigate('StationDetail', { activeCallout: stopCallout, stop })}>
-                <Image
-                  source={require('../../assets/icons/info/ic_info_white_36pt.png')}
-                />
+                <Image source={stationDetailIcon} />
               </BubbleTouchableOpacity>
               <BubbleTouchableOpacity onPress={() => navigate('StationSchedule', { activeStationIndex: stationIndex, loading, stopCallout })}>
-                <Image
-                  source={require('../../assets/icons/schedule/ic_schedule_white_36pt.png')}
-                />
+                <Image source={stationScheduleIcon} />
               </BubbleTouchableOpacity>
               <DirectionsButton onPress={() => startNavigation(mode, stop.latlng)} />
             </ButtonsView>
@@ -124,3 +129,5 @@ export default class StationCard extends React.Component {
     );
   }
 }
+
+export default withHelpers(StationCard);
