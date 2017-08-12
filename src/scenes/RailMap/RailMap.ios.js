@@ -1,49 +1,47 @@
 import React from 'react';
-import { AppState, NetInfo, StatusBar, View, DeviceEventEmitter, Platform } from 'react-native';
+import { AppState, NetInfo, StatusBar, DeviceEventEmitter } from 'react-native';
 import PropTypes from 'prop-types';
 import QuickActions from 'react-native-quick-actions';
-import defaults from 'react-native-user-defaults';
+import userDefaults from 'react-native-user-defaults';
 import Mapbox, { MapView } from 'react-native-mapbox-gl';
 import moment from 'moment';
 import {
-  containerStyle, ContainerView, VisibleView
+  ContainerView, VisibleView
 } from './RailMapCss';
-// import { blueStops, mapboxApiKey, timeInterval, SIMULATE_DISCONNECTED } from '../../helpers/config';
-// import { distanceTimeConverter, getNextTrainTime } from '../../helpers/scheduleCalcs';
-// import { getAnnotations, getStopCallouts } from '../../helpers/mapSetup';
-// import { mapboxDistanceAPI } from '../../helpers/mapboxDistanceAPI';
-// import { deviceProps } from '../../helpers/device';
-// import { blueLine } from '../../helpers/staticData.json';
-import {
-  blueStops, mapboxApiKey, timeInterval, SIMULATE_DISCONNECTED,
-  distanceTimeConverter, getNextTrainTime, getAnnotations,
-  mapboxDistanceAPI, deviceProps, staticData
-} from '../../helpers';
+import { mapboxApiKey } from '../../helpers/config';
+import { withHelpers, withStaticData } from '../../helpers';
 import MapOverlay from '../../components/MapOverlay';
-
-const {
-  defaultCenter, defaultZoom, deviceName
-} = deviceProps;
-const { blueLine } = staticData;
 
 Mapbox.setAccessToken(mapboxApiKey);
 
-export default class RailMap extends React.Component {
+class RailMap extends React.Component {
 
   static propTypes = {
-    navigation: PropTypes.object.isRequired
+    navigation: PropTypes.object.isRequired,
+    helpers: PropTypes.shape({
+      getAnnotations: PropTypes.func.isRequired,
+      deviceProps: PropTypes.object.isRequired,
+      getStopCallouts: PropTypes.func.isRequired,
+      timeInterval: PropTypes.number.isRequired,
+      blueStops: PropTypes.array.isRequired,
+      getNextTrainTime: PropTypes.func.isRequired,
+      mapboxDistanceAPI: PropTypes.func.isRequired,
+      distanceTimeConverter: PropTypes.func.isRequired,
+      SIMULATE_DISCONNECTED: PropTypes.bool.isRequired
+    }),
+    staticData: PropTypes.object.isRequired
   };
 
   state = {
-    annotations: [...getAnnotations(), {
-      coordinates: blueLine,
+    annotations: [...this.props.helpers.getAnnotations(), {
+      coordinates: this.props.staticData.blueLine,
       type: 'polyline',
       strokeColor: '#009ada',
       strokeWidth: 4,
       strokeAlpha: 0.9,
       id: 'foobar'
     }],
-    center: defaultCenter,
+    center: this.props.helpers.deviceProps.defaultCenter,
     connected: true,
     error: null,
     lastAppUpdate: null,
@@ -54,12 +52,12 @@ export default class RailMap extends React.Component {
     nearestStationIndex: null,
     connectionDetected: true,
     stationDistances: null,
-    ...getStopCallouts(), // inject stop callouts generated above into initial state object
-    zoom: defaultZoom
+    ...this.props.helpers.getStopCallouts(), // inject stop callouts generated above into initial state object
+    zoom: this.props.helpers.deviceProps.defaultZoom
   }
 
   componentDidMount() {
-    this.interval = setInterval(this.keepTime, timeInterval);
+    this.interval = setInterval(this.keepTime, this.props.helpers.timeInterval);
 
     this.setDefaultDirections();
 
@@ -110,6 +108,7 @@ export default class RailMap extends React.Component {
   onOpenAnnotation = (annotation) => {
     // When user opens an annotation, display the times above for that station
     const { stationDistances } = this.state;
+    const { blueStops } = this.props.helpers;
     const stationIndex = blueStops.indexOf(blueStops.find(stop => stop.mapLabel === annotation.title));
     const station = stationDistances[stationIndex];
     this.getCalloutTrainTime(station);
@@ -121,12 +120,12 @@ export default class RailMap extends React.Component {
     if (action) {
       this.fetchDistances(action.type === 'co.TeamLuna.CharlotteLightRail.drive' ? 'driving' : 'walking');
       if (action.type === 'co.TeamLuna.CharlotteLightRail.drive') {
-        defaults.set('SavedDirectionsChoice', 'driving');
+        userDefaults.set('SavedDirectionsChoice', 'driving');
       } else {
-        defaults.set('SavedDirectionsChoice', 'walking');
+        userDefaults.set('SavedDirectionsChoice', 'walking');
       }
     } else {
-      defaults.get('SavedDirectionsChoice')
+      userDefaults.get('SavedDirectionsChoice')
         .then(data => this.fetchDistances(data))
         .catch((err) => {
           this.fetchDistances('walking');
@@ -147,6 +146,7 @@ export default class RailMap extends React.Component {
   // Change the color of the nearest station marker so that it sticks out to user
   setNearestMarkerColor = (newNearestIndex) => {
     const oldNearestIndex = this.state.nearestStationIndex;
+    const { blueStops } = this.props.helpers;
     // If the nearest station has changed...
     if (newNearestIndex !== oldNearestIndex) {
       // If there is a newNearestIndex (if user is online), change the color of the new nearest station marker to green.
@@ -194,6 +194,7 @@ export default class RailMap extends React.Component {
 
   setUpDisconnectedState = (mode) => {
     const stationDistances = [];
+    const { blueStops, getNextTrainTime } = this.props.helpers;
     blueStops.forEach((stop, index) => stationDistances.push({ duration: 60, durationText: '---', index }));
 
     const stopCallouts = {};
@@ -226,8 +227,8 @@ export default class RailMap extends React.Component {
 
   setUpConnectedState = (position, mode) => {
     const origin = [position.coords.longitude, position.coords.latitude];
-    const destinations = blueStops
-      .map(stop => [stop.latlng.longitude, stop.latlng.latitude]);
+    const { blueStops, mapboxDistanceAPI, distanceTimeConverter, getNextTrainTime } = this.props.helpers;
+    const destinations = blueStops.map(stop => [stop.latlng.longitude, stop.latlng.latitude]);
 
     mapboxDistanceAPI.getDistance(origin, destinations, mode)
       .then((res) => {
@@ -305,6 +306,8 @@ export default class RailMap extends React.Component {
   }
 
   fetchDistances = (mode = this.state.mode) => {
+    const { SIMULATE_DISCONNECTED } = this.props.helpers;
+
     this.setState({
       lastAppUpdate: moment(),
       loading: true,
@@ -326,12 +329,13 @@ export default class RailMap extends React.Component {
   }
 
   showCallout = (stopNum, stationDistances = this.state.stationDistances) => {
+    const { blueStops, deviceProps } = this.props.helpers;
     // Swiping to new station while fetching closest station can, under some circumstances, call showCallout()
     // while stationDistances is null. This if block protects against errors in those cases
     if (!this.state.loading) {
       const stopInfo = blueStops[stopNum];
       const { latitude, longitude } = stopInfo.latlng;
-      const zoomLatitude = deviceName === 'iPhone 5' ? latitude - 0.001 : latitude; // adjust zoom alignment on iPhone 5s
+      const zoomLatitude = deviceProps.deviceName === 'iPhone 5' ? latitude - 0.001 : latitude; // adjust zoom alignment on iPhone 5s
       const doZoom = () => this.mapRef.setCenterCoordinateZoomLevel(zoomLatitude, longitude, 13.1857257019792);
       const station = stationDistances[stopNum];
       this.getCalloutTrainTime(station, doZoom);
@@ -339,10 +343,13 @@ export default class RailMap extends React.Component {
   }
 
   seeAllStations = () => {
+    const { deviceProps } = this.props.helpers;
+    const { defaultCenter, defaultZoom } = deviceProps;
     this.mapRef.setCenterCoordinateZoomLevel(defaultCenter.latitude, defaultCenter.longitude, defaultZoom);
   }
 
   keepTime = () => {
+    const { blueStops, getNextTrainTime } = this.props.helpers;
     // NEW FOR ALL STATIONS
     const stopsRequiringUpdate = {};
     blueStops.forEach((stop, index) => {
@@ -429,3 +436,5 @@ export default class RailMap extends React.Component {
     );
   }
 }
+
+export default withStaticData(withHelpers(RailMap));
