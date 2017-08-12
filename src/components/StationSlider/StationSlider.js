@@ -24,7 +24,7 @@ export default class StationSlider extends React.Component {
   }
 
   state = {
-    stationIndex: 0,
+    stationIndex: 0
   }
 
   componentWillReceiveProps(nextProps) {
@@ -48,7 +48,7 @@ export default class StationSlider extends React.Component {
       scrollView.scrollTo({
         x: nextProps.activeStationIndex * deviceProps.deviceScreen.width,
         y: 0,
-        animated: true,
+        animated: true
       });
     }
   }

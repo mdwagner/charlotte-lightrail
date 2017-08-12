@@ -11,7 +11,7 @@ export default class AttributionButton extends React.Component {
       '© Mapbox',
       '© OpenStreetMap',
       'Mapbox Telemetry',
-      'Cancel',
+      'Cancel'
     ];
     const cancelButtonIndex = 3;
     const title = 'Map Credits and Options';
@@ -22,12 +22,12 @@ export default class AttributionButton extends React.Component {
     const participatingOptions = [
       { text: 'Tell Me More', onPress: () => displayLink('https://www.mapbox.com/telemetry/') },
       { text: 'Stop Participating', onPress: () => setParticipation('0') },
-      { text: 'Keep Participating', style: 'cancel', onPress: () => setParticipation('1') },
+      { text: 'Keep Participating', style: 'cancel', onPress: () => setParticipation('1') }
     ];
     const notParticipatingOptions = [
       { text: 'Tell Me More', onPress: () => displayLink('https://www.mapbox.com/telemetry/') },
       { text: "Don't Participate", onPress: () => setParticipation('0') },
-      { text: 'Participate', style: 'cancel', onPress: () => setParticipation('1') },
+      { text: 'Participate', style: 'cancel', onPress: () => setParticipation('1') }
     ];
     ActionSheetIOS.showActionSheetWithOptions({ options, cancelButtonIndex, title }, (buttonIndex) => {
       switch (buttonIndex) {

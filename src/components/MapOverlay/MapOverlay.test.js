@@ -2,7 +2,6 @@ import React from 'react';
 import { snapshotStyledComponent } from '../../helpers';
 import MapOverlay from './MapOverlay.ios';
 jest.mock('SegmentedControlIOS');
-import renderer from 'react-test-renderer';
 
 describe('<MapOverlay />', () => {
   let props;
@@ -17,7 +16,7 @@ describe('<MapOverlay />', () => {
       locationDenied: false,
       seeAllStations: jest.fn(),
       navigation: { navigate: jest.fn() }
-    }
+    };
   });
 
   it('renders correctly', () => {

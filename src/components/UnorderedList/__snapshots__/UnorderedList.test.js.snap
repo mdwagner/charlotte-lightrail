@@ -43,7 +43,7 @@ exports[`<UnorderedList /> renders correctly 1`] = `
       style={
         Array [
           Object {
-            "flexBasis": 1,
+            "flexBasis": 0,
             "flexGrow": 1,
             "flexShrink": 1,
           },
@@ -110,7 +110,7 @@ exports[`<UnorderedList /> renders correctly 1`] = `
       style={
         Array [
           Object {
-            "flexBasis": 1,
+            "flexBasis": 0,
             "flexGrow": 1,
             "flexShrink": 1,
           },
@@ -177,7 +177,7 @@ exports[`<UnorderedList /> renders correctly 1`] = `
       style={
         Array [
           Object {
-            "flexBasis": 1,
+            "flexBasis": 0,
             "flexGrow": 1,
             "flexShrink": 1,
           },
@@ -244,7 +244,7 @@ exports[`<UnorderedList /> renders correctly 1`] = `
       style={
         Array [
           Object {
-            "flexBasis": 1,
+            "flexBasis": 0,
             "flexGrow": 1,
             "flexShrink": 1,
           },
@@ -311,7 +311,7 @@ exports[`<UnorderedList /> renders correctly 1`] = `
       style={
         Array [
           Object {
-            "flexBasis": 1,
+            "flexBasis": 0,
             "flexGrow": 1,
             "flexShrink": 1,
           },

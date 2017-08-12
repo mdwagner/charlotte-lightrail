@@ -8,12 +8,12 @@ export const getAnnotations = () =>
     title: stop.mapLabel,
     annotationImage: {
       source: {
-        uri: 'blueMarker',
+        uri: 'blueMarker'
       },
       height: 32,
-      width: 32,
+      width: 32
     },
-    id: `marker-${index}`,
+    id: `marker-${index}`
   }));
 
 export const getStopCallouts = () => {
@@ -24,7 +24,7 @@ export const getStopCallouts = () => {
     stopCallouts[`stopCallout${index}`] = {
       durationText: null,
       inbound: nextInbound,
-      outbound: nextOutbound,
+      outbound: nextOutbound
     };
   });
   return stopCallouts;
