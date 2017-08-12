@@ -27,6 +27,7 @@
     "react-native-segmented-control-tab": "mdwagner/react-native-segmented-control-tab",
     "react-native-user-defaults": "0.1.4",
     "react-navigation": "1.0.0-beta.11",
+    "react-test-renderer": "15.3.2",
     "styled-components": "2.1.0"
   },
   "jest": {
@@ -34,7 +35,7 @@
     "globals": {
       "__DEV__": true
     },
-    "transformIgnorePatterns": [
+    "preprocessorIgnorePatterns": [
       "node_modules/(?!react-native|react-navigation)"
     ],
     "coverageReporters": [
@@ -55,7 +56,6 @@
     "eslint-plugin-react": "6.4.1",
     "eslint-plugin-react-native": "2.0.0",
     "jest": "16.0.2",
-    "jest-react-native": "16.1.0",
-    "react-test-renderer": "15.3.2"
+    "jest-react-native": "16.1.0"
   }
 }
