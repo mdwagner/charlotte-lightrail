@@ -1,12 +1,20 @@
 import React from 'react';
-import { ActionSheetIOS, Alert } from 'react-native';
-import defaults from 'react-native-default-preference';
+import PropTypes from 'prop-types';
+import { ActionSheetIOS, Alert } from 'react-native'; // ActionSheetIOS == Picker (Android)
+import defaults from 'react-native-default-preference'; // user-defaults (iOS) == default-preference (Android)
 import { AttributionTouchableOpacity, AttributionIconImage } from './AttributionButtonCss';
-import { displayLink } from '../../helpers';
+import { withHelpers } from '../../helpers';
 
-export default class AttributionButton extends React.Component {
+class AttributionButton extends React.Component {
+
+  static propTypes = {
+    helpers: PropTypes.shape({
+      displayLink: PropTypes.func.isRequired
+    })
+  }
 
   showActionSheet = () => {
+    const { displayLink } = this.props.helpers;
     const options = [
       '© Mapbox',
       '© OpenStreetMap',
@@ -66,3 +74,5 @@ export default class AttributionButton extends React.Component {
     );
   }
 }
+
+export default withHelpers(AttributionButton);

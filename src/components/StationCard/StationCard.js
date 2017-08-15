@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ActivityIndicator, Image } from 'react-native';
+import { ActivityIndicator, Image } from 'react-native'; // TODO: Android ActivityIndicator
 import { withHelpers } from '../../helpers';
 import DirectionsButton from '../DirectionsButton';
 import {
