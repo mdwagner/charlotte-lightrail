@@ -16,7 +16,7 @@ class StationSlider extends React.Component {
     activeStationIndex: PropTypes.number,
     connected: PropTypes.bool.isRequired,
     loading: PropTypes.bool.isRequired,
-    mode: PropTypes.string.isRequired,
+    mode: PropTypes.string,
     nearestStationIndex: PropTypes.number,
     showCallout: PropTypes.func.isRequired,
     stationDistances: PropTypes.array,

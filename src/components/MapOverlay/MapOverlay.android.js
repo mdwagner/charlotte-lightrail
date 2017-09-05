@@ -18,7 +18,7 @@ export default class MapOverlay extends React.Component {
     fetchNearest: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
     locationDenied: PropTypes.bool.isRequired,
-    mode: PropTypes.string.isRequired, // eslint-disable-line
+    mode: PropTypes.string, // eslint-disable-line
     nearestStationIndex: PropTypes.number, // eslint-disable-line
     seeAllStations: PropTypes.func.isRequired,
     showCallout: PropTypes.func.isRequired, // eslint-disable-line

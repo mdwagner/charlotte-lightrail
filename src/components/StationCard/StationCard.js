@@ -21,7 +21,7 @@ class StationCard extends React.Component {
   static propTypes = {
     connected: PropTypes.bool.isRequired,
     loading: PropTypes.bool.isRequired,
-    mode: PropTypes.string.isRequired,
+    mode: PropTypes.string,
     nearestStationIndex: PropTypes.number,
     panToStation: PropTypes.func.isRequired,
     stationDistances: PropTypes.array,
