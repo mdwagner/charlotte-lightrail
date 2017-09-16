@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import AttributionButton from './AttributionButton';
+import AttributionButton from './AttributionButton.ios';
 
 describe('<AttributionButton />', () => {
   it('renders correctly', () => {

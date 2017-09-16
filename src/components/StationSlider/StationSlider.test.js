@@ -1,5 +1,5 @@
 import React from 'react';
-import { snapshotStyledComponent } from 'helpers/snapshotStyledComponent';
+import { snapshotStyledComponent } from '../../helpers/testHelpersHOC';
 import StationSlider from './StationSlider';
 
 describe('<StationSlider />', () => {

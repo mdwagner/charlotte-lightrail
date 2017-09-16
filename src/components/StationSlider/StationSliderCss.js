@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { deviceProps } from 'helpers/device';
+import { deviceProps } from '../../helpers/device';
 
 export const BottomSectionView = styled.View`
   position: absolute;

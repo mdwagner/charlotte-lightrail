@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { InteractionManager, Text, View } from 'react-native';
 import moment from 'moment';
-import ScheduleInfoHeader from 'components/ScheduleInfoHeader';
-import { blueStops } from 'helpers/config';
-import { getScheduleDay } from 'helpers/scheduleCalcs';
-import { deviceProps } from 'helpers/device';
+import ScheduleInfoHeader from '../../components/ScheduleInfoHeader';
+import { withHelpers } from '../../helpers';
 import {
   BoldWhiteText, DescriptionText, GrayText, TableCellView,
   HorizontalLineInsideLeftView, HorizontalLineInsideRightView,
@@ -16,18 +14,17 @@ import {
   TableContainerView, TableHeadView, TableView, VerticalLineView
 } from './ScheduleInfoCss';
 
-const { deviceScreen } = deviceProps;
-
-export default class ScheduleInfo extends React.Component {
+class ScheduleInfo extends React.Component {
 
   state = {
-    scheduleIndex: getScheduleDay().index,
-    scheduleValue: getScheduleDay().day
+    scheduleIndex: this.props.helpers.getScheduleDay().index,
+    scheduleValue: this.props.helpers.getScheduleDay().day
   };
 
   setScheduleAlignment = () => {
     const { scheduleValue } = this.state;
-    const currentDay = getScheduleDay().day;
+    const { deviceScreen } = this.props.helpers.deviceProps;
+    const currentDay = this.props.helpers.getScheduleDay().day;
     const setWrapperStyle = (ref, margin) => ref.setNativeProps({ style: { marginTop: margin } });
 
     if (this.inboundNext) { // If we have a node for the ref (if we're on the schedule for today)...
@@ -59,6 +56,7 @@ export default class ScheduleInfo extends React.Component {
 
   getTrainTimes = (direction, days) => {
     const { activeStationIndex, stopCallout } = this.props.navigation.state.params;
+    const { getScheduleDay, blueStops } = this.props.helpers;
     const currentDay = getScheduleDay().day;
     const stop = blueStops[activeStationIndex];
     const schedule = `${direction}${days}`;
@@ -130,6 +128,7 @@ export default class ScheduleInfo extends React.Component {
     // console.log('ScheduleInfo rendered')
     const { scheduleIndex } = this.state;
     const { activeStationIndex, loading, stopCallout } = this.props.navigation.state.params;
+    const { blueStops } = this.props.helpers;
 
     if (activeStationIndex !== null && stopCallout && !loading) {
       return (
@@ -179,5 +178,12 @@ ScheduleInfo.propTypes = {
         stopCallout: PropTypes.object
       })
     })
+  }),
+  helpers: PropTypes.shape({
+    blueStops: PropTypes.array.isRequired,
+    deviceProps: PropTypes.object.isRequired,
+    getScheduleDay: PropTypes.func.isRequired
   })
 };
+
+export default withHelpers(ScheduleInfo);

@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { LocationMarkerTouchableOpacity, IconImage } from './LocationButtonCss';
 
+const errorIcon = require('../../assets/icons/location/ic_location_disabled_white.png');
+const loadingIcon = require('../../assets/icons/location/ic_location_searching_white.png');
+const locationIcon = require('../../assets/icons/location/ic_my_location_white.png');
+
 export default class LocationButton extends React.Component {
 
   static propTypes = {
@@ -16,21 +20,19 @@ export default class LocationButton extends React.Component {
       return (
         <IconImage
           inactiveIcon
-          source={require('assets/icons/location/ic_location_disabled_white.png')}
+          source={errorIcon}
         />
       );
     } else if (loading) {
       return (
         <IconImage
           inactiveIcon
-          source={require('assets/icons/location/ic_location_searching_white.png')}
+          source={loadingIcon}
         />
       );
     }
     return (
-      <IconImage
-        source={require('assets/icons/location/ic_my_location_white.png')}
-      />
+      <IconImage source={locationIcon} />
     );
   }
 

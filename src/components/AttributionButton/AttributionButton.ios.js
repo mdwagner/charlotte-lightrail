@@ -1,12 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ActionSheetIOS, Alert } from 'react-native';
-import userDefaults from 'react-native-user-defaults';
-import { displayLink } from 'helpers/config';
+import defaults from 'react-native-user-defaults';
 import { AttributionTouchableOpacity, AttributionIconImage } from './AttributionButtonCss';
+import { withHelpers } from '../../helpers';
 
-export default class AttributionButton extends React.Component {
+class AttributionButton extends React.Component {
+
+  static propTypes = {
+    helpers: PropTypes.shape({
+      displayLink: PropTypes.func.isRequired
+    })
+  }
 
   showActionSheet = () => {
+    const { displayLink } = this.props.helpers;
     const options = [
       '© Mapbox',
       '© OpenStreetMap',
@@ -16,7 +24,7 @@ export default class AttributionButton extends React.Component {
     const cancelButtonIndex = 3;
     const title = 'Map Credits and Options';
 
-    const setParticipation = willParticipate => userDefaults.set('MGLMapboxMetricsEnabled', willParticipate).catch(err => console.log(err));
+    const setParticipation = willParticipate => defaults.set('MGLMapboxMetricsEnabled', JSON.stringify(willParticipate)).catch(err => console.log(err));
     const participatingMessage = 'You are helping to make OpenStreetMap and Mapbox maps better by contributing anonymous usage data.';
     const notParticipatingMessage = 'You can help make OpenStreetMap and Mapbox maps better by contributing anonymous usage data.';
     const participatingOptions = [
@@ -38,7 +46,7 @@ export default class AttributionButton extends React.Component {
           displayLink('http://www.openstreetmap.org/about/');
           break;
         case 2:
-          userDefaults.get('MGLMapboxMetricsEnabled')
+          defaults.get('MGLMapboxMetricsEnabled')
             .then((participating) => {
               if (participating === '1') {
                 Alert.alert('Make Mapbox Maps Better', participatingMessage, participatingOptions);
@@ -59,9 +67,12 @@ export default class AttributionButton extends React.Component {
     return (
       <AttributionTouchableOpacity onPress={this.showActionSheet}>
         <AttributionIconImage
-          source={require('assets/icons/info/info_circle.png')}
+          // eslint-disable-next-line
+          source={require('../../assets/icons/info/info_circle.png')}
         />
       </AttributionTouchableOpacity>
     );
   }
 }
+
+export default withHelpers(AttributionButton);

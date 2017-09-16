@@ -1,27 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ScrollView, View } from 'react-native';
-import { deviceProps } from 'helpers/device';
-import { blueStops } from 'helpers/config';
-import { mapboxIcon } from 'assets/icons/mapbox-icon';
-import StationCard from '../StationCard';
-import AttributionButton from '../AttributionButton';
+import { withHelpers } from '../../helpers';
 import {
   AttributionView, BottomSectionView, CalloutSectionView,
   CreditSectionView, MapboxIconImage
 } from './StationSliderCss';
+import StationCard from '../StationCard';
+import AttributionButton from '../AttributionButton';
+import { mapboxIcon } from '../../assets/icons/mapbox-icon';
 
-export default class StationSlider extends React.Component {
+class StationSlider extends React.Component {
 
   static propTypes = {
     activeStationIndex: PropTypes.number,
     connected: PropTypes.bool.isRequired,
     loading: PropTypes.bool.isRequired,
-    mode: PropTypes.string.isRequired,
+    mode: PropTypes.string,
     nearestStationIndex: PropTypes.number,
     showCallout: PropTypes.func.isRequired,
     stationDistances: PropTypes.array,
-    navigation: PropTypes.object.isRequired
+    navigation: PropTypes.object.isRequired,
+    helpers: PropTypes.shape({
+      deviceProps: PropTypes.object.isRequired,
+      blueStops: PropTypes.array.isRequired
+    })
   }
 
   state = {
@@ -30,6 +33,7 @@ export default class StationSlider extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const { activeStationIndex } = this.props;
+    const { deviceProps } = this.props.helpers;
     const scrollView = this.stationScrollView;
 
     const newStationIndexProp = (activeStationIndex !== nextProps.activeStationIndex);
@@ -89,6 +93,7 @@ export default class StationSlider extends React.Component {
   render() {
     // console.log('StationSlider rendered')
     const { connected, loading, mode, nearestStationIndex, stationDistances, navigation } = this.props;
+    const { blueStops } = this.props.helpers;
     return (
       <BottomSectionView>
         <CalloutSectionView>
@@ -126,3 +131,5 @@ export default class StationSlider extends React.Component {
     );
   }
 }
+
+export default withHelpers(StationSlider);

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Animated, View } from 'react-native';
 import Accordion from 'react-native-collapsible/Accordion';
 import { withTheme } from 'styled-components/native';
-import { faqContent } from 'components/FaqContent';
+import { faqContent } from '../../components/FaqContent';
 import {
   AccordionContentView, AccordionHeaderView, AccordionWrapperView,
   AnimatedArrowsView, BoldText, ScrollViewView, ViewContainerView

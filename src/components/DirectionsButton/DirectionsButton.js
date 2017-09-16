@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BubbleTouchableOpacity, ActiveIconImage } from './DirectionsButtonCss';
 
+const iconImage = require('../../assets/icons/directions/ic_directions_white_36pt.png');
+
 export default class DirectionsButton extends React.Component {
 
   static propTypes = {
@@ -13,9 +15,7 @@ export default class DirectionsButton extends React.Component {
 
     return (
       <BubbleTouchableOpacity onPress={onPress}>
-        <ActiveIconImage
-          source={require('assets/icons/directions/ic_directions_white_36pt.png')}
-        />
+        <ActiveIconImage source={iconImage} />
       </BubbleTouchableOpacity>
     );
   }

@@ -8,6 +8,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "ios": "react-native run-ios",
+    "android": "react-native run-android",
     "eslint": "eslint .",
     "eslint:ci": "eslint . --format stylish"
   },
@@ -20,8 +21,10 @@
     "react": "15.3.2",
     "react-native": "0.36.1",
     "react-native-collapsible": "brandonfancher/react-native-collapsible",
+    "react-native-default-preference": "^1.1.1",
     "react-native-mapbox-gl": "5.0.0",
     "react-native-quick-actions": "0.1.5",
+    "react-native-segmented-control-tab": "mdwagner/react-native-segmented-control-tab",
     "react-native-user-defaults": "0.1.4",
     "react-navigation": "1.0.0-beta.11",
     "react-test-renderer": "15.3.2",
@@ -41,13 +44,11 @@
     ]
   },
   "devDependencies": {
-    "babel-jest": "16.0.0",
-    "babel-plugin-module-resolver": "2.7.1",
+    "babel-jest": "^20.0.3",
     "babel-plugin-transform-inline-environment-variables": "0.1.1",
     "babel-preset-react-native": "1.9.0",
     "eslint": "3.9.1",
     "eslint-config-airbnb": "12.0.0",
-    "eslint-import-resolver-babel-module": "^3.0.0",
     "eslint-plugin-import": "1.16.0",
     "eslint-plugin-jest": "^20.0.3",
     "eslint-plugin-jsx-a11y": "2.2.3",

@@ -1,0 +1,78 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { ActionSheetIOS, Alert } from 'react-native'; // ActionSheetIOS == Picker (Android)
+import defaults from 'react-native-default-preference'; // user-defaults (iOS) == default-preference (Android)
+import { AttributionTouchableOpacity, AttributionIconImage } from './AttributionButtonCss';
+import { withHelpers } from '../../helpers';
+
+class AttributionButton extends React.Component {
+
+  static propTypes = {
+    helpers: PropTypes.shape({
+      displayLink: PropTypes.func.isRequired
+    })
+  }
+
+  showActionSheet = () => {
+    const { displayLink } = this.props.helpers;
+    const options = [
+      '© Mapbox',
+      '© OpenStreetMap',
+      'Mapbox Telemetry',
+      'Cancel'
+    ];
+    const cancelButtonIndex = 3;
+    const title = 'Map Credits and Options';
+
+    const setParticipation = willParticipate => defaults.set('MGLMapboxMetricsEnabled', JSON.stringify(willParticipate)).catch(err => console.log(err));
+    const participatingMessage = 'You are helping to make OpenStreetMap and Mapbox maps better by contributing anonymous usage data.';
+    const notParticipatingMessage = 'You can help make OpenStreetMap and Mapbox maps better by contributing anonymous usage data.';
+    const participatingOptions = [
+      { text: 'Tell Me More', onPress: () => displayLink('https://www.mapbox.com/telemetry/') },
+      { text: 'Stop Participating', onPress: () => setParticipation('0') },
+      { text: 'Keep Participating', style: 'cancel', onPress: () => setParticipation('1') }
+    ];
+    const notParticipatingOptions = [
+      { text: 'Tell Me More', onPress: () => displayLink('https://www.mapbox.com/telemetry/') },
+      { text: "Don't Participate", onPress: () => setParticipation('0') },
+      { text: 'Participate', style: 'cancel', onPress: () => setParticipation('1') }
+    ];
+    ActionSheetIOS.showActionSheetWithOptions({ options, cancelButtonIndex, title }, (buttonIndex) => {
+      switch (buttonIndex) {
+        case 0:
+          displayLink('https://www.mapbox.com/about/maps/');
+          break;
+        case 1:
+          displayLink('http://www.openstreetmap.org/about/');
+          break;
+        case 2:
+          defaults.get('MGLMapboxMetricsEnabled')
+            .then((participating) => {
+              if (participating === '1') {
+                Alert.alert('Make Mapbox Maps Better', participatingMessage, participatingOptions);
+              } else if (participating === '0') {
+                Alert.alert('Make Mapbox Maps Better', notParticipatingMessage, notParticipatingOptions);
+              } else {
+                console.log('Unexpected value for MGLMapboxMetricsEnabled:', participating);
+              }
+            });
+          break;
+        default:
+          break;
+      }
+    });
+  }
+
+  render() {
+    return (
+      <AttributionTouchableOpacity onPress={this.showActionSheet}>
+        <AttributionIconImage
+          // eslint-disable-next-line
+          source={require('../../assets/icons/info/info_circle.png')}
+        />
+      </AttributionTouchableOpacity>
+    );
+  }
+}
+
+export default withHelpers(AttributionButton);
